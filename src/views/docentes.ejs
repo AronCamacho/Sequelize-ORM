@@ -1,0 +1,54 @@
+<%include partials/_header%>
+<div class="container">
+	<div class="row mt-5">
+    <div class="col md-7">
+			<table class="table table-bordered table-hover">
+	        <thead>
+	          <tr>
+							<th>ID</th>
+	            <th>Nombre</th>
+	            <th>Apellido</th>
+	            <th>Titulo</th>
+							<th>Opciones</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	  			<% for(var i=0; i < docente.length; i++) { %>
+	  				<tr>
+  						<td><%= docente[i].id %></td>
+  						<td><%= docente[i].nombre %></td>
+							<td><%= docente[i].apellido %></td>
+							<td><%= docente[i].titulo %></td>
+							<td>
+  							<a href="/editar/<%= docente[i].id %>" class="btn btn-block btn-outline-success">Actualizar</a>
+								<a href="/delete/<%= docente[i].id %>" class="btn  btn-block btn-outline-warning">Borrar</a>
+							</td>
+	  				</tr>
+	  				<% } %>
+	        </tbody>
+	      </table>
+    </div>
+    <div class="col md-5">
+    	<div class="card">
+    		<div class="card-body">
+    			<form class="" action="/add" method="POST">
+    				<div class="form-group">
+
+    				<input  type="text" name="nombre" placeholder="Nombre" class="form-control">
+    				</div>
+    				<div class="form-group">
+    				<input type="text" name="apellido" placeholder="Apellido" class="form-control">
+    				</div>
+    				<div class="form-group">
+    				<input type="text" name="titulo" placeholder="Titulo" class="form-control">
+    				</div>
+    				<button type="submit" class="btn btn-primary">
+    			Guardar Docente
+    		</button>
+    	</form>
+    		</div>
+    	</div>
+    </div>
+	</div>
+</div>
+<%include partials/_footer%>
